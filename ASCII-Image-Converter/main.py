@@ -3,7 +3,7 @@ import math
 
 #these are the characters that make up the image, can do many combinations for different effects
 
-chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
+chars = "$@B%8&WM#*oahkbdpqwmZO0GQLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
 #chars = list(".,/\[]{}()OQPHZNRGKBMX")
 
 charArr = list(chars)
