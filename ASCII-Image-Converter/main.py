@@ -9,13 +9,12 @@ charArr = list(chars)
 charLen = len(charArr)
 intvl = charLen / 256  # index normalizer
 
-
 # max val of input is 255
 # multiplying by len/256 gives seminormalized value within chars (ratio * length of list)
 def grey2char(idx):
     return charArr[math.floor(idx * intvl)]
 
-
+####################################################
 print("Enter Image Name: ")
 inImg = input()
 
@@ -23,15 +22,15 @@ inImg = input()
 image = Image.open("input_images/" + inImg + ".jpg")
 w, h = image.size
 
-# get scale factor,
+# set scale factor,
 # scale image to try to match original
-print("Enter scale delta:\n"
+print("Enter scale factor:\n"
       "0-8: Pixelated\n"
       "8-15: Low Res\n"
       "15-25: Starting to get pretty large\n"
       "25+: Pushing the limits of your processing abilities"
       )
-print("WARNING: Large Scale Deltas will take a while to process and files become quite large rather quickly")
+print("WARNING: Large Scale Factors will take a while to process and files become quite large rather quickly")
 delta = float(input())
 delta = delta / 10  # make a bit more reasonable
 
