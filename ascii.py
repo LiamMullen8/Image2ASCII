@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 import math
 
 # these are the characters that make up the image, can do many combinations for different effects
@@ -51,6 +51,8 @@ w, h = image.size
 pix = image.load()
 
 # create output image
+
+#blank black background
 outImg = Image.new('RGB', (W * w, H * h), color=(0, 0, 0))
 ddraw = ImageDraw.Draw(outImg)
 
@@ -70,7 +72,40 @@ for i in range(h):
 
     out.write('\n')
 
+print("--- Edit Image ---")
+print("100 = default")
+
+bright = ImageEnhance.Brightness(outImg)
+
+print("Brightness %: ")
+Bd = float(input())
+Bd = Bd / 100.0
+B = bright.enhance(Bd)
+#B.save("brightness-change.jpg")
+
+###########################################
+###pipe brightness image into contrast filter
+
+contrast = ImageEnhance.Contrast(B)
+
+print("Contrast %:")
+Cd = float(input())
+Cd = Cd / 100.0
+C = contrast.enhance(Cd)
+#C.save('contrast-change.jpg')
+
+###########################################
+###pipe contrast image into sharpest filter
+
+sharp = ImageEnhance.Sharpness(C)
+
+print("Sharpness %:")
+Sd = float(input())
+Sd = Sd / 100.0
+S = sharp.enhance(Sd)
+#S.save("brightness-change.jpg")
+
 print("Save Image Name: ")
 imgName = input()
-outImg.save("output_images/" + imgName + ".jpg")
+S.save("output_images/" + imgName + ".jpg")
 print("!--- Conversion Complete ---!")
