@@ -95,7 +95,7 @@ C = contrast.enhance(Cd)
 #C.save('contrast-change.jpg')
 
 ###########################################
-###pipe contrast image into sharpest filter
+###pipe contrast image into sharpness filter
 
 sharp = ImageEnhance.Sharpness(C)
 
